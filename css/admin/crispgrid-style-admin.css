@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+
+.crispgrid-wrap {
+	width: 65%;
+	float: left;
+}
+
+#crispgrid-settings fieldset {
+	margin-bottom: 18px;
+}
+
+#crispgrid-settings label {
+	font-weight: 600;
+	display: inline-block;
+	min-width: 150px;
+}
+
+#crispgrid-settings input[type='text'], #crispgrid-settings select {
+	min-width: 150px;
+}
+
+#crispgrid-update {
+	font-size: 16px;
+	background-color: #0175d8;
+	color: #fff;
+	display: inline-block;
+	padding: 10px 30px;
+	cursor: pointer;
+	border: 0;
+	transition: all 300ms ease-in-out 0s;
+	text-transform: uppercase;
+	margin-top: 40px;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+}
+
+#crispgrid-update:hover {
+	background-color: #231F20;
+}
+
+.crispgrid-ads-section {
+	width: 30%;
+	float: right;
+}
+
+.crispgrid-ad-section {
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.crispgrid-ad-section:first-child {
+	padding-top: 15px;
+}
+
+.crispgrid-ad-section img {
+	max-width: 100%;
+	float: right;
+	display: block;
+	height: auto;
+}
+
+#wpseo_meta {
+	display: none !important;
+}
+
+@media screen and (max-width : 800px) {
+	.crispgrid-wrap, .crispgrid-ads-section {
+		width: 100%;
+		float: none;
+	}
+
+	.crispgrid-wrap {
+		margin-bottom: 30px;
+	}
+
+	.crispgrid-ad-section img {
+		max-width: 250px;
+		float: none;
+		margin: 0 auto;
+	}
+
+	#crispgrid-update {
+		margin-top: 20px;
+	}
+}
+
+@media screen and (max-width : 480px) {
+	#crispgrid-settings label, #crispgrid-settings input[type="text"], #crispgrid-settings select {
+		width: 100%;
+		float: none;
+		display: block;
+	}
+
+	#crispgrid-settings label {
+		margin-bottom: 10px;
+	}
+}
