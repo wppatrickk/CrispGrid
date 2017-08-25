@@ -16,6 +16,10 @@ function crispgrid_shortcode($atts) {
 
 	$crispgrid_type = get_post_meta($postid, 'crispgrid_type', true);
 	$crispgrid_cols = get_post_meta($postid, 'crispgrid_cols', true);
+	$crispgrid_display = get_post_meta($postid, 'crispgrid_display', true);
+	if (!$crispgrid_display) {
+		$crispgrid_display = 'square';
+	}
 	$crispgrid_nop = get_post_meta($postid, 'crispgrid_nop', true);
 	$crispgrid_image = get_post_meta($postid, 'crispgrid_image', true);
 	$crispgrid_date = get_post_meta($postid, 'crispgrid_date', true);
@@ -44,7 +48,7 @@ function crispgrid_shortcode($atts) {
 	$grid_posts = new WP_Query($args);
 
    	if($grid_posts->have_posts()) : ?>
-   		<div id="crispgrid-post-grid-<?php echo $postid; ?>" class="crispgrid-post-grid">
+   		<div id="crispgrid-post-grid-<?php echo $postid; ?>" class="crispgrid-post-grid <?php echo $crispgrid_display; ?>">
    			<style type="text/css">
    				#crispgrid-post-grid-<?php echo $postid; ?> .crispgrid-link a {
    					<?php if ($crispgrid_bgcolor) { ?>

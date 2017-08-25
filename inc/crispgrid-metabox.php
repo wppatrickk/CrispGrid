@@ -24,6 +24,7 @@ function crispgrid_settings($post) {
 	wp_nonce_field( 'crispgrid_nonce_set', 'crispgrid_nonce' );
 	$crispgrid_type = get_post_meta($post->ID, 'crispgrid_type', true);
 	$crispgrid_cols = get_post_meta($post->ID, 'crispgrid_cols', true);
+	$crispgrid_display = get_post_meta($post->ID, 'crispgrid_display', true);
 	$crispgrid_nop = get_post_meta($post->ID, 'crispgrid_nop', true);
 	$crispgrid_image = get_post_meta($post->ID, 'crispgrid_image', true);
 	$crispgrid_date = get_post_meta($post->ID, 'crispgrid_date', true);
@@ -68,6 +69,31 @@ function crispgrid_settings($post) {
 					<option value="6" <?php selected( $crispgrid_cols, '6' ); ?>>6</option>
 				</select>
 			</fieldset>
+
+			<div class="crispgrid-display">
+				<label>Display Type</label>
+				<fieldset>
+					<div class="crispgrid-display-wrap">
+						<legend class="screen-reader-text"><span><?php esc_attr_e( 'Square', 'crispgrid' ); ?></span></legend>
+						<label for="crispgrid-display">
+							<input name="crispgrid_display" type="radio" value="square" <?php checked( $crispgrid_display, 'square' ); ?> <?php if (!$crispgrid_display) { ?>checked<?php } ?> />
+							<span><?php esc_attr_e( 'Square', 'crispgrid' ); ?></span>
+						</label>
+					</div>
+
+					<div class="crispgrid-display-wrap">
+						<legend class="screen-reader-text"><span><?php esc_attr_e( 'Rectangle', 'crispgrid' ); ?></span></legend>
+						<label for="crispgrid-display">
+							<input name="crispgrid_display" type="radio" value="rectangle" <?php checked( $crispgrid_display, 'rectangle' ); ?> />
+							<span><?php esc_attr_e( 'Rectangle', 'crispgrid' ); ?></span>
+						</label>
+					</div>
+
+					<div class="clear"></div>
+				</fieldset>
+
+				<div class="clear"></div>
+			</div>
 
 			<fieldset>
 				<legend class="screen-reader-text"><span><?php esc_attr_e( 'No. of Posts', 'crispgrid' ); ?></span></legend>
@@ -185,6 +211,8 @@ function crispgrid_save_grid($post_id){
 		if( $_POST['crispgrid_cols'] ) {
 			update_post_meta( $post_id, 'crispgrid_cols', esc_attr( $_POST['crispgrid_cols'] ) );
 		}
+
+		update_post_meta( $post_id, 'crispgrid_display', $_POST['crispgrid_display'] );
 
 		if( $_POST['crispgrid_nop'] ) {
 			update_post_meta( $post_id, 'crispgrid_nop', esc_attr( $_POST['crispgrid_nop'] ) );

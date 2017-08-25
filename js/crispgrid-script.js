@@ -1,11 +1,29 @@
 jQuery(document).ready(function() {
-	var imgWidth = jQuery('.crispgrid-image').width();
-	jQuery('.crispgrid-image').height(imgWidth);
+	jQuery('.square').each(function() {
+    var imgWidth = jQuery(this).find('.crispgrid-image').width();
+    jQuery(this).find('.crispgrid-image').height(imgWidth);
+  });
 
-	jQuery(window).on('resize', function(){
-		var imgWidth = jQuery('.crispgrid-image').width();
-		jQuery('.crispgrid-image').height(imgWidth);
-	});
+  jQuery('.rectangle').each(function() {
+    var imgWidth = jQuery(this).find('.crispgrid-image').width();
+    var imgWidth = imgWidth * 2/3;
+    jQuery(this).find('.crispgrid-image').height(imgWidth);
+  });
+
+  jQuery(window).on('resize', function(){
+    jQuery('.square').each(function() {
+      var imgWidth = jQuery(this).find('.crispgrid-image').width();
+      jQuery(this).find('.crispgrid-image').height(imgWidth);
+    });
+
+    jQuery('.rectangle').each(function() {
+      var imgWidth = jQuery(this).find('.crispgrid-image').width();
+      var imgWidth = imgWidth * 2/3;
+      jQuery(this).find('.crispgrid-image').height(imgWidth);
+    });
+
+    equalheight('.crispgrid');
+  });
 });
 
 equalheight = function(container){
@@ -40,10 +58,5 @@ var currentTallest = 0,
 }
 
 jQuery(window).load(function() {
-  equalheight('.crispgrid');
-});
-
-
-jQuery(window).resize(function(){
   equalheight('.crispgrid');
 });

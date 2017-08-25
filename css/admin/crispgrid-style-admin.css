@@ -15,6 +15,21 @@
 	min-width: 150px;
 }
 
+.crispgrid-display {
+	margin-bottom: 24px;
+}
+
+#crispgrid-settings .crispgrid-display fieldset {
+	display: inline-block;
+	margin-bottom: 0;
+	position: relative;
+	top: 1px;
+}
+
+.crispgrid-display .crispgrid-display-wrap {
+	display: inline-block;
+}
+
 #crispgrid-settings input[type='text'], #crispgrid-settings select {
 	min-width: 150px;
 }
